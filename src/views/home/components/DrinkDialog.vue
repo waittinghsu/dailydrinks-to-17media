@@ -127,7 +127,24 @@ export default {
 };
 </script>
 <style lang="scss">
-.note .v-text-field__slot .v-label--active {
-  left: -20px !important;
+.note {
+  .v-text-field__slot {
+    .v-label--active {
+      left: -20px !important;
+    }
+  }
+}
+.el-dialog {
+  &__wrapper {
+    .el-dialog {
+      &__headerbtn {
+        .el-dialog {
+          &__close:before {
+            content: "X";
+          }
+        }
+      }
+    }
+  }
 }
 </style>
