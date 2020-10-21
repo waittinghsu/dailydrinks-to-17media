@@ -5,7 +5,14 @@
         <v-icon>{{ svgPath.mdiPlus }}</v-icon>
       </v-btn>
     </v-col>
-    <v-col v-for="(item, key) in orders" :key="key" cols="4">
+    <v-col
+      v-for="(item, key) in orders"
+      :key="key"
+      cols="12"
+      sm="4"
+      md="3"
+      xl="2"
+    >
       <v-card>
         <v-img
           :src="sampleImg"
