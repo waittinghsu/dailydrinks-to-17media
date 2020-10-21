@@ -1,8 +1,6 @@
 <template>
-  <div id="app">
-    <HeaderBar>
-      <AddDrinkBtn />
-    </HeaderBar>
+  <div class="v-application" id="app">
+    <HeaderBar> </HeaderBar>
     <v-container>
       <home />
     </v-container>
@@ -10,9 +8,8 @@
 </template>
 
 <script>
-import HeaderBar from "./layout/HeaderBar";
-import AddDrinkBtn from "./layout/HeaderBar/component/AddDrinkBtn";
-import home from "./views/home";
+import HeaderBar from "@/layout/HeaderBar";
+import home from "@/views/home";
 export default {
   provide() {
     return {
@@ -21,7 +18,6 @@ export default {
   },
   name: "App",
   components: {
-    AddDrinkBtn,
     home,
     HeaderBar,
   },
