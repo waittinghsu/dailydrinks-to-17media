@@ -1,28 +1,34 @@
 <template>
-  <Dialog ref="dialog" title="test">
+  <Dialog ref="dialog" :title="headerTitle">
     <div slot="dialog-body">
       <v-row>
         <v-col cols="12" sm="12" md="6">
           <v-text-field
+            ref="name"
             v-model="formData.name"
+            :rules="[(v) => !!v || 'This field is required']"
             label="飲品"
             required
           ></v-text-field>
         </v-col>
         <v-col cols="12" sm="12" md="6">
           <v-text-field
+            ref="price"
             v-model.number="formData.price"
+            :rules="[(v) => !!v || 'This field is required']"
             type="number"
             label="價錢"
             hint="須為正整數"
+            required
           ></v-text-field>
         </v-col>
         <v-col cols="12" sm="12" md="6">
           <v-textarea
             v-model="formData.notes"
+            class="note"
             outlined
             name="input-7-4"
-            label="A multi-line optional text"
+            label="multi-line text"
           ></v-textarea>
         </v-col>
         <v-col cols="12" sm="12" md="6">
@@ -55,6 +61,8 @@ export default {
   },
   data() {
     return {
+      type: "add",
+      key: 0,
       initFormData: {
         name: "",
         price: "",
@@ -62,6 +70,10 @@ export default {
         picture: this.sampleImg,
       },
       formData: {},
+      api: {
+        add: this.ADD_ORDERS,
+        edit: this.EDIT_ORDERS,
+      },
     };
   },
   created() {
@@ -69,23 +81,56 @@ export default {
   },
   computed: {
     ...mapGetters({ orders: "orders/orders" }),
+    headerTitle() {
+      return "drink";
+    },
   },
   mounted() {
     console.log("vuex", this.orders);
   },
   methods: {
-    ...mapMutations({}),
-    show() {
+    ...mapMutations({
+      ADD_ORDERS: "orders/ADD_ORDERS",
+      EDIT_ORDERS: "orders/EDIT_ORDERS",
+    }),
+    show({ action, item, key }) {
       this.formData = _.cloneDeep(this.initFormData);
+      this.type = action;
+      switch (action) {
+        case "add":
+          break;
+        case "edit":
+          this.key = key;
+          this.formData = { ...item };
+          break;
+        default:
+          break;
+      }
       this.$refs.dialog.show();
     },
     close() {
       this.$refs.dialog.hide();
     },
     submit() {
-      console.log(this.formData);
-      this.$emit("add", this.formData);
+      let flag = true;
+      ["name", "price"].forEach((item) => {
+        if (this.$refs[item] && Object.keys(this.$refs[item]).length !== 0) {
+          if (!this.$refs[item].validate(true)) {
+            flag = false;
+          }
+        }
+      });
+      if (flag) {
+        this.api[this.type]({ data: this.formData, key: this.key });
+      }
+      this.close();
+      // this.ADD_ORDERS
     },
   },
 };
 </script>
+<style lang="scss">
+.note .v-text-field__slot .v-label--active {
+  left: -20px !important;
+}
+</style>
