@@ -20,11 +20,10 @@ const mutations = {
     state.orders.splice(key, 1);
   },
   EDIT_ORDERS: (state, { data, key }) => {
-    console.log("data, key", data, key);
     const temp = _.cloneDeep(state.orders);
     temp[key] = data;
     state.orders = temp;
-    console.log(state.orders);
+    // state.orders[key] = data;
   }
 };
 

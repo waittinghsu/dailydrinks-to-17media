@@ -85,9 +85,6 @@ export default {
       return "drink";
     },
   },
-  mounted() {
-    console.log("vuex", this.orders);
-  },
   methods: {
     ...mapMutations({
       ADD_ORDERS: "orders/ADD_ORDERS",
