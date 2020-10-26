@@ -4,6 +4,15 @@
       <v-btn icon @click="openDialog({ action: 'add' })">
         <v-icon>{{ svgPath.mdiPlus }}</v-icon>
       </v-btn>
+      <v-dialog v-model="testDialog" data-app width="500">
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn color="red lighten-2" dark v-bind="attrs" v-on="on" @click="testDialog = true"> Click Me </v-btn>
+        </template>
+        <v-card>
+          <v-card-title>ok</v-card-title>
+          <v-card-text>omega</v-card-text>
+        </v-card>
+      </v-dialog>
     </v-col>
     <v-col v-for="(item, key) in orders" :key="key" cols="12" sm="4" md="3" xl="2">
       <v-card>
@@ -43,6 +52,7 @@ export default {
   },
   data() {
     return {
+      testDialog: false,
       svgPath: { mdiDelete, mdiFileEdit, mdiPlus },
     };
   },
@@ -68,3 +78,8 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+.v-dialog__container {
+  display: unset !important;
+}
+</style>
