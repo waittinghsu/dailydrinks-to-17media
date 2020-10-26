@@ -55,6 +55,8 @@ const actions = {
           notes: 'Small plates, salads',
         },
         { name: '檸檬紅擦', price: 25, notes: 'Small plates, salads' },
+        { name: '檸檬率擦', price: 25, notes: 'Small plates, salads' },
+        { name: '檸檬烏龍擦', price: 25, notes: 'Small plates, salads' },
       ];
       commit('SET_ORDERS', apiData);
       resolve();
