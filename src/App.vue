@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="v-application">
+  <div id="app" class="v-application" data-app="true">
     <HeaderBar> </HeaderBar>
     <v-container>
       <home />

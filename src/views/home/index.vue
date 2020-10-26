@@ -1,6 +1,13 @@
 <template>
   <v-row>
     <v-col cols="12">
+      <v-btn color="blue lighten-2" dark @click="testDialog1 = true"> Click Me </v-btn>
+      <v-dialog v-if="testDialog1" v-model="testDialog1" data-app width="500">
+        <v-card>
+          <v-card-title>ok</v-card-title>
+          <v-card-text>omega</v-card-text>
+        </v-card>
+      </v-dialog>
       <v-btn icon @click="openDialog({ action: 'add' })">
         <v-icon>{{ svgPath.mdiPlus }}</v-icon>
       </v-btn>
@@ -52,6 +59,7 @@ export default {
   },
   data() {
     return {
+      testDialog1: false,
       testDialog: false,
       svgPath: { mdiDelete, mdiFileEdit, mdiPlus },
     };
@@ -80,6 +88,6 @@ export default {
 </script>
 <style lang="scss">
 .v-dialog__container {
-  display: unset !important;
+  //display: unset !important;
 }
 </style>
