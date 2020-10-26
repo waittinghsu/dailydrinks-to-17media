@@ -6,9 +6,12 @@
 
 <script>
 export default {
-  name: "Card",
+  name: 'Card',
   props: {
-    msg: String,
+    msg: {
+      type: String,
+      default: 'ok',
+    },
   },
 };
 </script>

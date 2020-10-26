@@ -1,12 +1,12 @@
-import _ from "lodash";
+import _ from 'lodash';
 const state = {
-  orders: []
+  orders: [],
 };
 
 const getters = {
   orders(state) {
     return state.orders;
-  }
+  },
 };
 
 const mutations = {
@@ -24,43 +24,42 @@ const mutations = {
     temp[key] = data;
     state.orders = temp;
     // state.orders[key] = data;
-  }
+  },
 };
 
 const actions = {
   initOrders({ commit }, data) {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       const apiData = [
         {
-          name: "烏龍綠",
+          name: '烏龍綠',
           price: 20,
-          notes:
-            "Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating."
+          notes: 'Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.',
         },
         {
-          name: "珍珠奶茶",
+          name: '珍珠奶茶',
           price: 60,
-          notes: "Sliders reflect a range of values along a bar,"
+          notes: 'Sliders reflect a range of values along a bar,',
         },
         {
-          name: "生活泡沫綠茶",
+          name: '生活泡沫綠茶',
           price: 10,
-          notes: "Small plates, salads"
+          notes: 'Small plates, salads',
         },
-        { name: "老虎牙子", price: 55, notes: "Small plates, salads" },
-        { name: "QOO", price: 24, notes: "Small plates, salads" },
-        { name: "芒果冰沙", price: 120, notes: "Small plates, salads" },
+        { name: '老虎牙子', price: 55, notes: 'Small plates, salads' },
+        { name: 'QOO', price: 24, notes: 'Small plates, salads' },
+        { name: '芒果冰沙', price: 120, notes: 'Small plates, salads' },
         {
-          name: "白玉熟成清露",
+          name: '白玉熟成清露',
           price: 55,
-          notes: "Small plates, salads"
+          notes: 'Small plates, salads',
         },
-        { name: "檸檬紅擦", price: 25, notes: "Small plates, salads" }
+        { name: '檸檬紅擦', price: 25, notes: 'Small plates, salads' },
       ];
-      commit("SET_ORDERS", apiData);
+      commit('SET_ORDERS', apiData);
       resolve();
     });
-  }
+  },
 };
 
 export default {
@@ -68,5 +67,5 @@ export default {
   state,
   getters,
   mutations,
-  actions
+  actions,
 };

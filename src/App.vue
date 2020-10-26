@@ -1,5 +1,5 @@
 <template>
-  <div class="v-application" id="app">
+  <div id="app" class="v-application">
     <HeaderBar> </HeaderBar>
     <v-container>
       <home />
@@ -8,15 +8,15 @@
 </template>
 
 <script>
-import HeaderBar from "@/layout/HeaderBar";
-import home from "@/views/home";
+import HeaderBar from '@/layout/HeaderBar';
+import home from '@/views/home';
 export default {
   provide() {
     return {
       sampleImg: this.sampleImg,
     };
   },
-  name: "App",
+  name: 'App',
   components: {
     home,
     HeaderBar,
@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       sampleImg:
-        "https://images.unsplash.com/photo-1534824394572-a24ff25bbb5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1786&q=80",
+        'https://images.unsplash.com/photo-1534824394572-a24ff25bbb5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1786&q=80',
     };
   },
 };
@@ -32,7 +32,7 @@ export default {
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

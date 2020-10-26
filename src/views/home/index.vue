@@ -5,21 +5,9 @@
         <v-icon>{{ svgPath.mdiPlus }}</v-icon>
       </v-btn>
     </v-col>
-    <v-col
-      v-for="(item, key) in orders"
-      :key="key"
-      cols="12"
-      sm="4"
-      md="3"
-      xl="2"
-    >
+    <v-col v-for="(item, key) in orders" :key="key" cols="12" sm="4" md="3" xl="2">
       <v-card>
-        <v-img
-          :src="sampleImg"
-          gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-          height="200px"
-        >
-        </v-img>
+        <v-img :src="sampleImg" gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)" height="200px"> </v-img>
         <v-card-title class="pb-0"> {{ item.name }} </v-card-title>
         <v-card-text class="text-right">
           <div class="my-4 subtitle-1">$ {{ item.price }}</div>
@@ -44,12 +32,12 @@
 </template>
 
 <script>
-import { mapActions, mapGetters, mapMutations } from "vuex";
-import { mdiDelete, mdiFileEdit, mdiPlus } from "@mdi/js";
-import DrinkDialog from "@/views/home/components/DrinkDialog";
+import { mapActions, mapGetters, mapMutations } from 'vuex';
+import { mdiDelete, mdiFileEdit, mdiPlus } from '@mdi/js';
+import DrinkDialog from '@/views/home/components/DrinkDialog';
 export default {
-  inject: ["sampleImg"],
-  name: "Home",
+  inject: ['sampleImg'],
+  name: 'Home',
   components: {
     DrinkDialog,
   },
@@ -58,19 +46,19 @@ export default {
       svgPath: { mdiDelete, mdiFileEdit, mdiPlus },
     };
   },
+  computed: {
+    ...mapGetters({ orders: 'orders/orders' }),
+  },
   created() {
     this.initOrders();
-    this.orders.map((o) => {
+    this.orders.map(o => {
       o.picture = this.sampleImg;
       return o;
     });
   },
-  computed: {
-    ...mapGetters({ orders: "orders/orders" }),
-  },
   methods: {
-    ...mapActions({ initOrders: "orders/initOrders" }),
-    ...mapMutations({ DELETE_ORDER: "orders/DELETE_ORDER" }),
+    ...mapActions({ initOrders: 'orders/initOrders' }),
+    ...mapMutations({ DELETE_ORDER: 'orders/DELETE_ORDER' }),
     deleteDrink({ key }) {
       this.DELETE_ORDER(key);
     },
@@ -80,4 +68,3 @@ export default {
   },
 };
 </script>
-

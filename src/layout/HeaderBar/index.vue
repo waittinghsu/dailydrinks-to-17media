@@ -9,16 +9,16 @@
 <script>
 export default {
   // inject:
-  name: "HeaderBar",
+  name: 'HeaderBar',
   props: {
     title: {
       type: String,
-      default: "Header HW",
+      default: 'Header HW',
     },
   },
   data() {
     return {
-      headerImg: "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg",
+      headerImg: 'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg',
     };
   },
 };

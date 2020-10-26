@@ -13,14 +13,8 @@
     :width="width"
     @closed="afterClose"
   >
-    <div
-      v-loading="loadingDialog"
-      :class="['dialog-wrap', { 'dialog-wrap--height-fixed': heightFixed }]"
-    >
-      <div
-        v-if="dialogBodyVisible"
-        :class="['dialog-body', { 'dialog-body--height-fixed': heightFixed }]"
-      >
+    <div v-loading="loadingDialog" :class="['dialog-wrap', { 'dialog-wrap--height-fixed': heightFixed }]">
+      <div v-if="dialogBodyVisible" :class="['dialog-body', { 'dialog-body--height-fixed': heightFixed }]">
         <slot name="dialog-body" />
       </div>
       <div v-if="$slots['dialog-footer']" class="dialog-footer">
@@ -32,7 +26,7 @@
 
 <script>
 export default {
-  name: "Dialog",
+  name: 'Dialog',
   props: {
     title: {
       type: String,
@@ -40,11 +34,11 @@ export default {
     },
     width: {
       type: String,
-      default: "70%",
+      default: '70%',
     },
     top: {
       type: String,
-      default: "15vh",
+      default: '15vh',
     },
     heightFixed: {
       type: Boolean,
@@ -90,7 +84,7 @@ export default {
     },
     afterClose() {
       this.dialogBodyVisible = false;
-      this.$emit("closed");
+      this.$emit('closed');
     },
     hide() {
       this.dialogVisible = false;
