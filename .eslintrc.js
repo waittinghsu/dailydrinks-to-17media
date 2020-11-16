@@ -8,12 +8,11 @@ const appEnv = process.env.VUE_APP_ENV;
 module.exports = {
   root: true,
   env: { node: true },
-  extends: ['plugin:vue/recommended', 'eslint:recommended', '@vue/prettier', 'plugin:prettier/recommended'],
+  extends: ['plugin:vue/recommended', 'eslint:recommended'],
   parserOptions: { parser: 'babel-eslint' },
   plugins: [
     // html
     'vue',
-    'prettier',
   ],
 
   /**
@@ -29,20 +28,6 @@ module.exports = {
    */
 
   rules: {
-    'prettier/prettier': [
-      'error',
-      {
-        printWidth: 150, // 程式碼自動斷行長度
-        singleQuote: true, // 強制使用一致的單引號
-        semi: true, // 強制是否使用分號。q
-        tabWidth: 2,
-        trailingComma: 'all',
-        endOfLine: 'auto',
-        bracketSpacing: true,
-        arrowParens: 'avoid',
-        proseWrap: 'always',
-      },
-    ],
     /**
      *
      * 邏輯錯誤及最佳實踐的規則
@@ -77,7 +62,7 @@ module.exports = {
 
     'no-extra-boolean-cast': 2, // 禁止不必要的布爾類型轉換，如 !!true
 
-    // 'no-extra-semi': 2, // 禁用不必要的分號
+    'no-extra-semi': 2, // 禁用不必要的分號
 
     'no-inner-declarations': 2, // ??? 禁止在嵌套的語句塊中出現變量
 
@@ -89,9 +74,9 @@ module.exports = {
 
     'no-template-curly-in-string': 2, // 禁止在常規字符串中出現模板字面量占位符語法
 
-    // semi: [2, 'never'], // ??? 強制是否使用分號。
+    semi: [2, 'never'], // ??? 強制是否使用分號。
 
-    // 'no-unexpected-multiline': 2, // 禁止使用令人困惑的多行表達式
+    'no-unexpected-multiline': 2, // 禁止使用令人困惑的多行表達式
 
     'no-unreachable': 2, // 禁止在 return、throw、continue 和 break 語句後出現不可達代碼
 
@@ -99,7 +84,7 @@ module.exports = {
 
     'no-unsafe-negation': 2, // 禁止對關係運算符的左操作數使用否定操作符
 
-    // 'valid-jsdoc': 2, // 強制使用有效的 JSDoc 注釋
+    'valid-jsdoc': 2, // 強制使用有效的 JSDoc 注釋
 
     'valid-typeof': 2, // 強制 typeof 表達式與有效的字符串進行比較
 
@@ -107,19 +92,19 @@ module.exports = {
 
     'block-scoped-var': 2, // 把 var 語句看作是在塊級作用域範圍之內
 
-    // complexity: [1, 6], // 添加複雜度
+    complexity: [1, 6], // 添加複雜度
 
     curly: 2, // ??? 要求遵循大括號約定
 
     'default-case': 1, // 要求 Switch 語句中有 Default 分支
 
-    // 'dot-location': [2, 'property'], // 強制在點號之前換行
+    'dot-location': [2, 'property'], // 強制在點號之前換行
 
     'dot-notation': 2, // 點號和字面量，優先使用點號
 
-    // eqeqeq: [2, 'smart'], // ??? 要求使用 === 和 !==
+    eqeqeq: [2, 'smart'], // ??? 要求使用 === 和 !==
 
-    // 'guard-for-in': 2, // ??? 需要約束 for-in
+    'guard-for-in': 2, // ??? 需要約束 for-in
 
     'no-caller': 2, // 禁用 caller 或 callee
 
@@ -131,9 +116,9 @@ module.exports = {
 
     'no-global-assign': 2, // 禁止對原生對象或只讀的全局對象進行賦值
 
-    // 'no-floating-decimal': 2, // ?? 禁止浮點小數
+    'no-floating-decimal': 2, // ?? 禁止浮點小數
 
-    // 'no-fallthrough': 2, // 禁止 case 語句落空
+    'no-fallthrough': 2, // 禁止 case 語句落空
 
     'no-labels': 2, // 禁用標籤語句
 
@@ -156,7 +141,7 @@ module.exports = {
      *   }],
      */
 
-    // 'no-multi-spaces': 2, // 禁止出現多個空格
+    'no-multi-spaces': 2, // 禁止出現多個空格
 
     'no-multi-str': 2, // 禁止多行字符串
 
@@ -184,7 +169,7 @@ module.exports = {
 
     'no-self-assign': 2, // 禁止自身賦值
 
-    // 'no-sequences': 2, // ??? 不允許使用逗號操作符
+    'no-sequences': 2, // ??? 不允許使用逗號操作符
 
     'no-throw-literal': 2, // 限制可以被拋出的異常
 
@@ -198,7 +183,7 @@ module.exports = {
 
     'no-useless-return': 2, // 禁止多餘的 return 語句
 
-    // 'no-void': 2, // 禁止使用void操作符
+    'no-void': 2, // 禁止使用void操作符
 
     'no-with': 2, // 禁用 with 語句
 
@@ -206,11 +191,11 @@ module.exports = {
 
     radix: 0, // 要求必須有基數
 
-    // 'require-await': 2, // 禁止使用不帶 await 表達式的 async 函數max-lines
+    'require-await': 2, // 禁止使用不帶 await 表達式的 async 函數max-lines
 
-    // 'vars-on-top': 2, // 要求將變量聲明放在它們作用域的頂部
+    'vars-on-top': 2, // 要求將變量聲明放在它們作用域的頂部
 
-    // 'wrap-iife': [2, 'inside'], // 需要把立即執行的函數包裹起來
+    'wrap-iife': [2, 'inside'], // 需要把立即執行的函數包裹起來
 
     strict: [2, 'global'], // 要求或禁止使用嚴格模式指令
 
@@ -220,11 +205,11 @@ module.exports = {
      *
      */
 
-    // 'init-declarations': 2, // ??? 強制或禁止變量聲明語句中初始化
+    'init-declarations': 2, // ??? 強制或禁止變量聲明語句中初始化
 
     'no-delete-var': 2, // 禁止刪除變量
 
-    // 'no-shadow': 2, // 禁止變量聲明覆蓋外層作用域的變量
+    'no-shadow': 0, // 禁止變量聲明覆蓋外層作用域的變量
 
     'no-shadow-restricted-names': 2, // 關鍵字不能被遮蔽
 
@@ -232,58 +217,58 @@ module.exports = {
 
     'no-unused-vars': 0, // ??? 禁止未使用過的變量
 
-    // 'no-use-before-define': 2, // 禁止定義前使用
+    'no-use-before-define': 2, // 禁止定義前使用
 
     /**
      *
      * 代碼風格
      *
      */
-    // 'array-bracket-newline': [2, 'consistent'], // 在數組開括號後和閉括號前強制換行
+    'array-bracket-newline': [2, 'consistent'], // 在數組開括號後和閉括號前強制換行
 
-    // 'array-bracket-spacing': 2, // 強制在括號內前後使用空格
+    'array-bracket-spacing': 2, // 強制在括號內前後使用空格
 
-    // 'array-element-newline': [2, { multiline: true }], // ??? 強制數組元素間出現換行
+    'array-element-newline': [2, { multiline: true }], // ??? 強制數組元素間出現換行
 
-    // 'block-spacing': 2, // 強制在代碼塊中開括號前和閉括號後有空格
+    'block-spacing': 2, // 強制在代碼塊中開括號前和閉括號後有空格
 
-    // 'brace-style': 2, // 大括號風格要求
+    'brace-style': 2, // 大括號風格要求
 
-    // camelcase: 2, // 要求使用駱駝拼寫法
+    camelcase: 2, // 要求使用駱駝拼寫法
 
-    // 'comma-dangle': [2, 'always-multiline'], // 要求或禁止使用拖尾逗號
+    'comma-dangle': [2, 'always-multiline'], // 要求或禁止使用拖尾逗號
 
-    // 'comma-spacing': 2, // 強制在逗號周圍使用空格
+    'comma-spacing': 2, // 強制在逗號周圍使用空格
 
-    // 'comma-style': 2, // 逗號風格
+    'comma-style': 2, // 逗號風格
 
-    // 'computed-property-spacing': 2, // 禁止或強制在計算屬性中使用空格
+    'computed-property-spacing': 2, // 禁止或強制在計算屬性中使用空格
 
-    // 'consistent-this': [2, 'self'], // ??? 要求一致的 This
+    'consistent-this': [2, 'self'], // ??? 要求一致的 This
 
-    // 'eol-last': [1, 'always'], // ??? 要求或禁止文件末尾保留一行空行
+    'eol-last': [1, 'always'], // ??? 要求或禁止文件末尾保留一行空行
 
-    // 'func-call-spacing': 2, // 要求或禁止在函數標識符和其調用之間有空格
+    'func-call-spacing': 2, // 要求或禁止在函數標識符和其調用之間有空格
 
-    // 'func-style': [2, 'declaration'], // ??? 強制 function 聲明或表達式的一致性
+    'func-style': [2, 'declaration'], // ??? 強制 function 聲明或表達式的一致性
 
-    // 'function-paren-newline': [1, 'multiline'], // 強制在函數括號內使用一致的換行
+    'function-paren-newline': [1, 'multiline'], // 強制在函數括號內使用一致的換行
 
-    // indent: [2, 2], // 強制使用一致的縮進
+    indent: [2, 2], // 強制使用一致的縮進
 
-    // 'jsx-quotes': 2, // 強制在 JSX 屬性中一致地使用雙引號或單引號
+    'jsx-quotes': 2, // 強制在 JSX 屬性中一致地使用雙引號或單引號
 
-    // 'key-spacing': 2, // 強制在對象字面量的鍵和值之間使用一致的空格
+    'key-spacing': 2, // 強制在對象字面量的鍵和值之間使用一致的空格
 
-    // 'keyword-spacing': 2, // 強制關鍵字周圍空格的一致性
+    'keyword-spacing': 2, // 強制關鍵字周圍空格的一致性
 
-    // 'linebreak-style': 2, // 強制使用一致的換行符風格，用\n，不用\r\n
+    'linebreak-style': 2, // 強制使用一致的換行符風格，用\n，不用\r\n
 
-    // 'lines-around-comment': 2, // 強制注釋周圍有空行
+    'lines-around-comment': 2, // 強制注釋周圍有空行
 
-    // 'lines-between-class-members': 2, // 要求在類成員之間出現空行
+    'lines-between-class-members': 2, // 要求在類成員之間出現空行
 
-    // 'max-depth': 2, // 強制塊語句的最大可嵌套深度
+    'max-depth': 2, // 強制塊語句的最大可嵌套深度
 
     /*
      * 強制行的最大長度
@@ -374,9 +359,9 @@ module.exports = {
 
     'spaced-comment': 2, // 要求在注釋前有空白
 
-    // 'switch-colon-spacing': 2, // 強制在 switch 的冒號左右有空格
+    'switch-colon-spacing': 2, // 強制在 switch 的冒號左右有空格
 
-    // 'template-tag-spacing': 2, // 要求在模板標記和它們的字面量之間有空格
+    'template-tag-spacing': 2, // 要求在模板標記和它們的字面量之間有空格
 
     /**
      *
@@ -384,13 +369,13 @@ module.exports = {
      *
      */
 
-    // 'arrow-parens': [2, 'as-needed'], // 要求箭頭函數的參數使用圓括號
+    'arrow-parens': [2, 'as-needed'], // 要求箭頭函數的參數使用圓括號
 
-    // 'arrow-body-style': 2, // 要求箭頭函數體使用大括號
+    'arrow-body-style': 2, // 要求箭頭函數體使用大括號
 
-    // 'arrow-spacing': 2, // 要求箭頭函數的箭頭之前或之後有空格
+    'arrow-spacing': 2, // 要求箭頭函數的箭頭之前或之後有空格
 
-    // 'generator-star-spacing': 2, // ??? 強制 generator 函數中 * 號周圍有空格
+    'generator-star-spacing': 2, // ??? 強制 generator 函數中 * 號周圍有空格
 
     'no-class-assign': 2, // 不允許修改類聲明的變量
 
@@ -414,7 +399,7 @@ module.exports = {
 
     'object-shorthand': 2, // 要求對象字面量簡寫語法
 
-    // 'prefer-arrow-callback': 2, // 要求使用箭頭函數作為回調
+    'prefer-arrow-callback': 2, // 要求使用箭頭函數作為回調
 
     'prefer-const': 1, // ??? 建議使用const
 
@@ -437,7 +422,7 @@ module.exports = {
 
     // 'rest-spread-spacing': 2, // 強制剩餘和擴展運算符及其表達式之間有空格
 
-    // 'template-curly-spacing': 2, // 強制模板字符串中空格的使用
+    'template-curly-spacing': 2, // 強制模板字符串中空格的使用
 
     // ??? import 排序 問題是要以字母排序
     'sort-imports': [
@@ -454,6 +439,10 @@ module.exports = {
      * Vue 相關配置
      *
      */
-    'vue/no-unused-components': 'off',
+    'vue/no-unused-components': 0,
+    'vue/max-attributes-per-line': [2, {
+      'singleline': 6,
+      'multiline': { max: 6 }
+    }],
   },
 };
