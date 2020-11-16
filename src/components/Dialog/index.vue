@@ -13,11 +13,20 @@
     :width="width"
     @closed="afterClose"
   >
-    <div v-loading="loadingDialog" :class="['dialog-wrap', { 'dialog-wrap--height-fixed': heightFixed }]">
-      <div v-if="dialogBodyVisible" :class="['dialog-body', { 'dialog-body--height-fixed': heightFixed }]">
+    <div
+      v-loading="loadingDialog"
+      :class="['dialog-wrap', { 'dialog-wrap--height-fixed': heightFixed }]"
+    >
+      <div
+        v-if="dialogBodyVisible"
+        :class="['dialog-body', { 'dialog-body--height-fixed': heightFixed }]"
+      >
         <slot name="dialog-body" />
       </div>
-      <div v-if="$slots['dialog-footer']" class="dialog-footer">
+      <div
+        v-if="$slots['dialog-footer']"
+        class="dialog-footer"
+      >
         <slot name="dialog-footer" />
       </div>
     </div>
@@ -75,33 +84,33 @@ export default {
       loadingDialog: false,
       dialogVisible: false,
       dialogBodyVisible: false,
-    };
+    }
   },
   methods: {
     show() {
-      this.dialogBodyVisible = true;
-      this.dialogVisible = true;
+      this.dialogBodyVisible = true
+      this.dialogVisible = true
     },
     afterClose() {
-      this.dialogBodyVisible = false;
-      this.$emit('closed');
+      this.dialogBodyVisible = false
+      this.$emit('closed')
     },
     hide() {
-      this.dialogVisible = false;
-      this.beforeClose();
+      this.dialogVisible = false
+      this.beforeClose()
     },
     toggleLoadingDialog() {
-      this.loadingDialog = !this.loadingDialog;
+      this.loadingDialog = !this.loadingDialog
     },
     toggleLoadingFullScreen() {
-      this.loadingFullScreen = !this.loadingFullScreen;
+      this.loadingFullScreen = !this.loadingFullScreen
     },
     afterSubmit() {
-      this.loadingFullScreen = false;
-      this.hide();
+      this.loadingFullScreen = false
+      this.hide()
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
