@@ -1,31 +1,30 @@
-import _ from 'lodash';
-const state = {
-  orders: [],
-};
+import _ from 'lodash'
+const state = { orders: [] }
 
 const getters = {
   orders(state) {
-    return state.orders;
+    return state.orders
   },
-};
+}
 
 const mutations = {
   ADD_ORDERS: (state, { data }) => {
-    state.orders.push(data);
+    state.orders.push(data)
   },
   SET_ORDERS: (state, data) => {
-    state.orders = data;
+    state.orders = data
   },
   DELETE_ORDER: (state, key) => {
-    state.orders.splice(key, 1);
+    state.orders.splice(key, 1)
   },
+  // eslint-disable-next-line no-shadow
   EDIT_ORDERS: (state, { data, key }) => {
-    const temp = _.cloneDeep(state.orders);
-    temp[key] = data;
-    state.orders = temp;
+    const temp = _.cloneDeep(state.orders)
+    temp[key] = data
+    state.orders = temp
     // state.orders[key] = data;
   },
-};
+}
 
 const actions = {
   initOrders({ commit }, data) {
@@ -46,23 +45,47 @@ const actions = {
           price: 10,
           notes: 'Small plates, salads',
         },
-        { name: '老虎牙子', price: 55, notes: 'Small plates, salads' },
-        { name: 'QOO', price: 24, notes: 'Small plates, salads' },
-        { name: '芒果冰沙', price: 120, notes: 'Small plates, salads' },
+        {
+          name: '老虎牙子',
+          price: 55,
+          notes: 'Small plates, salads',
+        },
+        {
+          name: 'QOO',
+          price: 24,
+          notes: 'Small plates, salads',
+        },
+        {
+          name: '芒果冰沙',
+          price: 120,
+          notes: 'Small plates, salads',
+        },
         {
           name: '白玉熟成清露',
           price: 55,
           notes: 'Small plates, salads',
         },
-        { name: '檸檬紅擦', price: 25, notes: 'Small plates, salads' },
-        { name: '檸檬率擦', price: 25, notes: 'Small plates, salads' },
-        { name: '檸檬烏龍擦', price: 25, notes: 'Small plates, salads' },
-      ];
-      commit('SET_ORDERS', apiData);
-      resolve();
-    });
+        {
+          name: '檸檬紅擦',
+          price: 25,
+          notes: 'Small plates, salads',
+        },
+        {
+          name: '檸檬率擦',
+          price: 25,
+          notes: 'Small plates, salads',
+        },
+        {
+          name: '檸檬烏龍擦',
+          price: 25,
+          notes: 'Small plates, salads',
+        },
+      ]
+      commit('SET_ORDERS', apiData)
+      resolve()
+    })
   },
-};
+}
 
 export default {
   namespaced: true,
@@ -70,4 +93,4 @@ export default {
   getters,
   mutations,
   actions,
-};
+}
